@@ -1,0 +1,37 @@
+<br />
+
+<h4>Cadastro de Locação</h4>
+
+<mat-form-field appearance="fill">
+  <mat-label>Cliente</mat-label>
+  <mat-select (selectionChange)="atualizaCliente($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let cliente of arrayClientes" [value]="cliente">
+      {{ cliente.usuario }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Filme</mat-label>
+  <mat-select (selectionChange)="atualizaFilme($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let filme of arrayFilmes" [value]="filme">
+      {{ filme.titulo }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+<button mat-raised-button color="primary" (click)="cadastrar()">
+  Cadastrar
+</button>
+
+<br />
+<br />
+<a routerLink="/locacao/listar"> Ver todas as locações </a>
+
+<!-- <p>cadastrar works!</p>
+<a routerLink="" routerLinkActive="active">Listar Component</a> -->

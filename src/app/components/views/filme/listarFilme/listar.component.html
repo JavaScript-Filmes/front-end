@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <tr>
+      <th>Filme</th>
+      <th>Gênero</th>
+      <th>Duração</th>
+      <th>Descrição</th>
+      <th>Status</th>
+      <th>Atualização</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let filme of filmes">
+      <td>
+        {{ filme.titulo }}
+      </td>
+      <td>
+        {{ filme.genero }}
+      </td>
+      <td>
+        {{ filme.duracao }}
+      </td>
+      <td>
+        {{ filme.descricao }}
+      </td>
+      <td>
+        {{ filme.status }}
+      </td>
+      <td>
+        {{ filme.updatedAt | date: "dd/MM/yyyy HH:mm:ss" }}
+      </td>
+    </tr>
+  </tbody>
+</table>

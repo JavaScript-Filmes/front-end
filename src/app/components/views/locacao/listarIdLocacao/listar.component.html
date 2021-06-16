@@ -1,0 +1,24 @@
+<a routerLink="/filme/cadastrar"> Novo filme </a>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Filme</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let locacao of locacoes">
+      <td>
+        {{ locacao._id }}
+      </td>
+      <td>
+        {{ locacao.filme }}
+      </td>
+      <td>
+        {{ locacao.cliente }}
+      </td>
+    </tr>
+  </tbody>
+</table>

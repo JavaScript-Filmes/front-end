@@ -1,0 +1,20 @@
+<a routerLink="/cliente/cadastrar"> Novo cliente </a>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Usuário</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>
+        {{ cliente._id }}
+      </td>
+      <td>
+        {{ cliente.usuario }}
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,20 @@
+<a routerLink="/favorito/favorito"> Novo favorito </a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Filme</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let favorito of favoritos">
+      <td>
+        {{ favorito.filme }}
+      </td>
+      <td>
+        {{ favorito.cliente }}
+      </td>
+    </tr>
+  </tbody>
+</table>

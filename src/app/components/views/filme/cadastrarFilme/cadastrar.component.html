@@ -1,0 +1,93 @@
+<br />
+
+<h4>Cadastro de Filme</h4>
+
+<form>
+  <mat-form-field>
+    <mat-label>Nome do Diretor</mat-label>
+    <input
+      type="text"
+      name="diretor"
+      [(ngModel)]="diretor"
+      matInput
+      placeholder="Diretor"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Descrição do Filme</mat-label>
+    <textarea
+      type="text"
+      name="descricao"
+      [(ngModel)]="descricao"
+      matInput
+      placeholder="Descrição"
+    >
+    </textarea>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Título do Filme</mat-label>
+    <input
+      type="text"
+      name="titulo"
+      [(ngModel)]="titulo"
+      matInput
+      placeholder="Título"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Duração do Filme</mat-label>
+    <input
+      type="text"
+      name="duracao"
+      [(ngModel)]="duracao"
+      matInput
+      placeholder="Duração"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Gênero do Filme</mat-label>
+    <input
+      type="text"
+      name="genero"
+      [(ngModel)]="genero"
+      matInput
+      placeholder="Gênero"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select (selectionChange)="atualizaStatus($event)" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let status of statusSelect" [value]="status.value">
+        {{ status.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br />
+
+  <button mat-raised-button color="primary" (click)="cadastrar()">
+    Cadastrar
+  </button>
+</form>
+
+<br />
+<a routerLink=""> Listar Filmes </a>
+
+<!-- <p>cadastrar works!</p>
+<a routerLink="" routerLinkActive="active">Listar Component</a> -->

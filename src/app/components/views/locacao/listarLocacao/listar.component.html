@@ -1,0 +1,28 @@
+<a routerLink="/locacao/cadastrar"> Novo Locação </a>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Filme</th>
+      <th>Cliente</th>
+      <th>Data da locação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let locacao of locacoes">
+      <td>
+        {{ locacao._id }}
+      </td>
+      <td>
+        {{ locacao.filme }}
+      </td>
+      <td>
+        {{ locacao.cliente }}
+      </td>
+      <td>
+        {{ locacao.createdAt | date: "dd/MM/yyyy HH:mm:ss" }}
+      </td>
+    </tr>
+  </tbody>
+</table>

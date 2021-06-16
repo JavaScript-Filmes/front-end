@@ -1,0 +1,24 @@
+<a routerLink="/filme/cadastrar"> Novo filme </a>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Data do filme</th>
+      <th>Criado em</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let filme of filmes">
+      <td>
+        {{ filme.descricao }}
+      </td>
+      <td>
+        {{ filme.titulo }}
+      </td>
+      <td>
+        <!-- {{ filme.createdAt | date: "dd/MM/yyyy HH:mm:ss" }} -->
+      </td>
+    </tr>
+  </tbody>
+</table>
