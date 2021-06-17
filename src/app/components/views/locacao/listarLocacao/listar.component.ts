@@ -2,8 +2,6 @@ import { LocacaoService } from "../../../../services/locacao.service";
 import { ClienteService } from "../../../../services/cliente.service";
 import { FilmeService } from "../../../../services/filme.service";
 import { Locacao } from "../../../../modelos/Locacao";
-import { Filme } from "../../../../modelos/Filme";
-import { Cliente } from "../../../../modelos/Cliente";
 import { Component, OnInit } from "@angular/core";
 
 @Component({

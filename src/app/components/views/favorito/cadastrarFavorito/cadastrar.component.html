@@ -1,11 +1,35 @@
-<label for="cliente">Cliente</label>
-<input type="text" name="cliente" [(ngModel)]="cliente" />
 <br />
-<label for="filme">Filme</label>
-<input type="text" name="filme" [(ngModel)]="filme" />
-<br />
-<button (click)="cadastrar()">Cadastrar</button>
 
+<h2>Cadastro de Favorito</h2>
+
+<mat-form-field appearance="fill">
+  <mat-label>Cliente</mat-label>
+  <mat-select (selectionChange)="atualizaCliente($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let cliente of arrayClientes" [value]="cliente">
+      {{ cliente.usuario }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Filme</mat-label>
+  <mat-select (selectionChange)="atualizaFilme($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let filme of arrayFilmes" [value]="filme">
+      {{ filme.titulo }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+<button mat-stroked-button color="primary" (click)="cadastrar()">
+  Cadastrar
+</button>
+
+<br />
 <br />
 <a routerLink="/favorito/listar"> Listar Favoritos </a>
 

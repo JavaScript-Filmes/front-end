@@ -1,20 +1,8 @@
 <a routerLink="/cliente/cadastrar"> Novo cliente </a>
 
-<table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Usuário</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let cliente of clientes">
-      <td>
-        {{ cliente._id }}
-      </td>
-      <td>
-        {{ cliente.usuario }}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<mat-list>
+  <mat-list-item *ngFor="let cliente of clientes">
+    <mat-icon matListIcon>account_circle</mat-icon>
+    <h3 matLine>{{ cliente.usuario }}</h3>
+  </mat-list-item>
+</mat-list>
