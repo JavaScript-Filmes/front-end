@@ -1,6 +1,8 @@
 import { FilmeService } from "../../../../services/filme.service";
 import { Filme } from "../../../../modelos/Filme";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 interface Situacao {
   value: string;
@@ -20,7 +22,11 @@ export class CadastrarComponent implements OnInit {
   statusSelect: Situacao[] = [{ value: "DISPONÍVEL" }, { value: "LOCADO" }];
   filme = new Filme();
 
-  constructor(private service: FilmeService) {}
+  constructor(
+    private service: FilmeService,
+    private router: Router,
+    private snack: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
@@ -34,6 +40,13 @@ export class CadastrarComponent implements OnInit {
     this.filme.diretor = this.diretor;
     this.filme.genero = this.genero;
     this.filme.duracao = this.duracao;
+
+    this.snack.open("Filme cadastrado com sucesso", "X", {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+    });
+    this.router.navigate([""]);
 
     this.service.cadastrarFilme(this.filme).subscribe((filme) => {
       console.log(filme);

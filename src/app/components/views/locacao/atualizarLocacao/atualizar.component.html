@@ -1,15 +1,68 @@
-<label for="filme">Filme</label>
-<input type="text" name="filme" [(ngModel)]="filme" />
 <br />
-<label for="cliente">Cliente</label>
-<input type="text" name="cliente" [(ngModel)]="cliente" />
+<h2>Locações cadastradas</h2>
 <br />
 
-<br />
-<button (click)="atualizar()">Atualizar</button>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Filme</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let locacao of locacoes">
+      <td>
+        {{ locacao._id }}
+      </td>
+      <td>
+        {{ locacao.filme }}
+      </td>
+      <td>
+        {{ locacao.cliente }}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <br />
-<a routerLink=""> Listar Filmes </a>
+<br />
 
+<h2>Alteração de Locação</h2>
+
+<mat-form-field>
+  <mat-label>ID da locação</mat-label>
+  <input type="text" name="id" [(ngModel)]="id" matInput placeholder="ID" />
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Cliente</mat-label>
+  <mat-select (selectionChange)="atualizaCliente($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let cliente of arrayClientes" [value]="cliente">
+      {{ cliente.usuario }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Filme</mat-label>
+  <mat-select (selectionChange)="atualizaFilme($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let filme of arrayFilmes" [value]="filme">
+      {{ filme.titulo }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<button mat-stroked-button color="primary" (click)="atualizar()">
+  Atualizar
+</button>
 <!-- <p>cadastrar works!</p>
 <a routerLink="" routerLinkActive="active">Listar Component</a> -->

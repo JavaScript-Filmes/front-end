@@ -1,0 +1,9 @@
+table {
+  text-align: center;
+}
+
+th,
+td {
+  padding-left: 30px;
+  text-align: center;
+}

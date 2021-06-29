@@ -27,13 +27,13 @@ export class FilmeService {
   }
 
   deletarFilme(id: string): Observable<Filme[]> {
-    return this.http.get<Filme[]>(
+    return this.http.delete<Filme[]>(
       `${this.baseURL}catalogo/excluir-filme/${id}`
     );
   }
 
   atualizarFilme(Filme: Filme, id: string): Observable<Filme> {
-    return this.http.post<Filme>(
+    return this.http.put<Filme>(
       `${this.baseURL}catalogo/editar-filme/${id}`,
       Filme
     );

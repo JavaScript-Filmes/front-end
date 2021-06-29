@@ -1,0 +1,28 @@
+a {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(98, 79, 133, 0.521);
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 20px 10px 0;
+  border-radius: 30%;
+  color: black;
+  text-decoration: none;
+  box-shadow: 3px 3px 3px #aaaaaa7e;
+}
+
+a:hover {
+  background-color: rgba(98, 79, 133, 0.521);
+  color: white;
+}
+
+span {
+  margin-top: 6px;
+}
+
+div {
+  display: flex;
+  align-items: center;
+}

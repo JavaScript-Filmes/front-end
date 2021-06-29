@@ -1,4 +1,26 @@
 table {
+  margin-top: 16px;
   width: 100%;
-  text-align: center;
+}
+
+mat-icon {
+  margin-right: 8px;
+}
+
+td {
+  padding: 0 24px !important;
+  border-left: 1px solid rgb(204, 204, 206);
+  margin: 12px;
+}
+
+th {
+  padding: 0 24px !important;
+}
+
+table {
+  max-width: 95%;
+}
+
+#ajuste-primeira {
+  border-left: none;
 }

@@ -29,13 +29,13 @@ export class LocacaoService {
   }
 
   deletarLocacao(id: string): Observable<Locacao[]> {
-    return this.http.get<Locacao[]>(
+    return this.http.delete<Locacao[]>(
       `${this.baseURL}catalogo/excluir-locacao/${id}`
     );
   }
 
   atualizarLocacao(Locacao: Locacao, id: string): Observable<Locacao> {
-    return this.http.post<Locacao>(
+    return this.http.put<Locacao>(
       `${this.baseURL}catalogo/editar-locacao/${id}`,
       Locacao
     );

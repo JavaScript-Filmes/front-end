@@ -5,6 +5,8 @@ import { Component, OnInit } from "@angular/core";
 import { Favorito } from "src/app/modelos/Favorito";
 import { Filme } from "../../../../modelos/Filme";
 import { Cliente } from "../../../../modelos/Cliente";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-cadastrar",
@@ -21,7 +23,9 @@ export class CadastrarFavoritoComponent implements OnInit {
   constructor(
     private service: FavoritoService,
     private serviceFilme: FilmeService,
-    private serviceCliente: ClienteService
+    private serviceCliente: ClienteService,
+    private router: Router,
+    private snack: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +50,13 @@ export class CadastrarFavoritoComponent implements OnInit {
   }
 
   cadastrar(): void {
+    this.snack.open("Favoritado com sucesso", "X", {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+    });
+    this.router.navigate(["/favorito/listar"]);
+
     this.service.cadastrarFavorito(this.favorito).subscribe((favorito) => {
       console.log(favorito);
     });

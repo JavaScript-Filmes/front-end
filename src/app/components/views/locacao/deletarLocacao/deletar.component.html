@@ -1,8 +1,43 @@
-<label for="id">Id</label>
-<input type="text" name="id" [(ngModel)]="id" />
+<br />
+<h2>Locações cadastradas</h2>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Filme</th>
+      <th>Cliente</th>
+      <th>Data da locação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let locacao of locacoes">
+      <td>
+        {{ locacao._id }}
+      </td>
+      <td>
+        {{ locacao.filme }}
+      </td>
+      <td>
+        {{ locacao.cliente }}
+      </td>
+      <td>
+        {{ locacao.createdAt | date: "dd/MM/yyyy HH:mm:ss" }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+
+<h2>Exclusão de locações</h2>
+
+<mat-form-field>
+  <mat-label>Digite o ID da locação</mat-label>
+  <input type="text" name="id" [(ngModel)]="id" matInput placeholder="ID" />
+</mat-form-field>
 
 <br />
-<button (click)="deletar()">Deletar</button>
 
-<br />
-<a routerLink="/locacao/listar"> Listar Locações </a>
+<button mat-stroked-button color="primary" (click)="deletar()">Deletar</button>

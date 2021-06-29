@@ -1,26 +1,119 @@
-<label for="diretor">Diretor</label>
-<input type="text" name="diretor" [(ngModel)]="diretor" />
 <br />
-<label for="status">Status</label>
-<input type="text" name="status" [(ngModel)]="status" />
-<br />
-<label for="descricao">Descrição</label>
-<input type="text" name="descricao" [(ngModel)]="descricao" />
-<br />
-<label for="titulo">Título</label>
-<input type="text" name="titulo" [(ngModel)]="titulo" />
-<br />
-<label for="duracao">Duração</label>
-<input type="text" name="duracao" [(ngModel)]="duracao" />
-<br />
-<label for="genero">Gênero</label>
-<input type="text" name="genero" [(ngModel)]="genero" />
 
 <br />
-<button (click)="atualizar()">Atualizar</button>
+<h2>Filmes cadastrados</h2>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Filme</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let filme of filmes">
+      <td>
+        {{ filme._id }}
+      </td>
+      <td>
+        {{ filme.titulo }}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <br />
-<a routerLink=""> Listar Filmes </a>
+<br />
+
+<h2>Atualização de Filmes</h2>
+
+<form>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input
+      required
+      type="text"
+      name="id"
+      [(ngModel)]="id"
+      matInput
+      placeholder="ID"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Título do Filme</mat-label>
+    <input
+      type="text"
+      name="titulo"
+      [(ngModel)]="titulo"
+      matInput
+      placeholder="Título"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Descrição do Filme</mat-label>
+    <textarea
+      type="text"
+      name="descricao"
+      [(ngModel)]="descricao"
+      matInput
+      placeholder="Descrição"
+    >
+    </textarea>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Duração do Filme</mat-label>
+    <input
+      type="text"
+      name="duracao"
+      [(ngModel)]="duracao"
+      matInput
+      placeholder="Duração"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Gênero do Filme</mat-label>
+    <input
+      type="text"
+      name="genero"
+      [(ngModel)]="genero"
+      matInput
+      placeholder="Gênero"
+    />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select (selectionChange)="atualizaStatus($event)" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let status of statusSelect" [value]="status.value">
+        {{ status.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br />
+
+  <button mat-stroked-button color="primary" (click)="atualizar()">
+    Atualizar
+  </button>
+</form>
+
+<br />
 
 <!-- <p>cadastrar works!</p>
 <a routerLink="" routerLinkActive="active">Listar Component</a> -->

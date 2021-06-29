@@ -1,9 +1,6 @@
-<a routerLink="/locacao/cadastrar"> Novo Locação </a>
-
 <table>
   <thead>
     <tr>
-      <th>#</th>
       <th>Filme</th>
       <th>Cliente</th>
       <th>Data da locação</th>
@@ -11,9 +8,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let locacao of locacoes">
-      <td>
-        {{ locacao._id }}
-      </td>
       <td>
         {{ locacao.filme }}
       </td>

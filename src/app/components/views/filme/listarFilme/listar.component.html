@@ -1,34 +1,37 @@
-<table mat-table class="mat-elevation-z8">
-  <thead>
-    <tr>
-      <th>Filme</th>
-      <th>Gênero</th>
-      <th>Duração</th>
-      <th>Descrição</th>
-      <th>Status</th>
-      <th>Atualização</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let filme of filmes">
-      <td>
-        {{ filme.titulo }}
-      </td>
-      <td>
-        {{ filme.genero }}
-      </td>
-      <td>
-        {{ filme.duracao }}
-      </td>
-      <td>
-        {{ filme.descricao }}
-      </td>
-      <td>
-        {{ filme.status }}
-      </td>
-      <td>
-        {{ filme.updatedAt | date: "dd/MM/yyyy HH:mm:ss" }}
-      </td>
-    </tr>
-  </tbody>
+<table mat-table [dataSource]="filmes" class="mat-elevation-z8">
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let filme">{{ filme.status }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef>Filme</th>
+    <td id="ajuste-primeira" mat-cell *matCellDef="let filme">
+      {{ filme.titulo }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef>Descrição</th>
+    <td mat-cell *matCellDef="let filme">
+      {{ filme.descricao }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="genero">
+    <th mat-header-cell *matHeaderCellDef>Gênero</th>
+    <td mat-cell *matCellDef="let filme">
+      {{ filme.genero }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="duracao">
+    <th mat-header-cell *matHeaderCellDef>Duração</th>
+    <td mat-cell *matCellDef="let filme">
+      {{ filme.duracao }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>

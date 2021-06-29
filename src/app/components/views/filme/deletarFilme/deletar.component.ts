@@ -13,13 +13,17 @@ export class DeletarIdComponent implements OnInit {
 
   constructor(private service: FilmeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.listarFilmes().subscribe((filmes) => {
+      this.filmes = filmes;
+    });
+  }
 
   deletar(): void {
     let id = this.id;
 
     this.service.deletarFilme(id).subscribe((filmes) => {
-      this.filmes = filmes;
+      console.log(filmes);
     });
   }
 }

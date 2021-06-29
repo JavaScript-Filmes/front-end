@@ -1,8 +1,39 @@
-<label for="id">Id</label>
-<input type="text" name="id" [(ngModel)]="id" />
+<br />
+<h2>Favoritos cadastrados</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Filme</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let favorito of favoritos">
+      <td>
+        {{ favorito._id }}
+      </td>
+      <td>
+        {{ favorito.filme }}
+      </td>
+      <td>
+        {{ favorito.cliente }}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <br />
-<button (click)="deletar()">Deletar</button>
+<br />
+
+<h2>Exclusão de favorito</h2>
+
+<mat-form-field>
+  <mat-label>Digite o ID da favorito</mat-label>
+  <input type="text" name="id" [(ngModel)]="id" matInput placeholder="ID" />
+</mat-form-field>
 
 <br />
-<a routerLink=""> Listar Filmes </a>
+
+<button mat-stroked-button color="primary" (click)="deletar()">Deletar</button>

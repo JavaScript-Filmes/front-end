@@ -6,6 +6,8 @@ import { Filme } from "../../../../modelos/Filme";
 import { Cliente } from "../../../../modelos/Cliente";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-cadastrar",
@@ -23,7 +25,9 @@ export class CadastrarLocacaoComponent implements OnInit {
   constructor(
     private service: LocacaoService,
     private serviceFilme: FilmeService,
-    private serviceCliente: ClienteService
+    private serviceCliente: ClienteService,
+    private router: Router,
+    private snack: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +51,13 @@ export class CadastrarLocacaoComponent implements OnInit {
 
   cadastrar(): void {
     this.locacao.data = new Date();
+
+    this.snack.open("Locação cadastrada com sucesso", "X", {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+    });
+    this.router.navigate(["/locacao/listar"]);
 
     this.service.cadastrarLocacao(this.locacao).subscribe((locacao) => {
       console.log(locacao);

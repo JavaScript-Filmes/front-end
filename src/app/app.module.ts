@@ -5,6 +5,10 @@ import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { PrincipalFavoritoComponent } from "./components/views/favorito/principal/principal.component";
+import { PrincipalLocacaoComponent } from "./components/views/locacao/principal/principal.component";
+import { PrincipalFilmeComponent } from "./components/views/filme/principal/principal.component";
+import { PrincipalClienteComponent } from "./components/views/cliente/principal/principal.component";
 import { ListarComponent } from "./components/views/filme/listarFilme/listar.component";
 import { AtualizarComponent } from "./components/views/filme/atualizarFilme/atualizar.component";
 import { DeletarIdComponent } from "./components/views/filme/deletarFilme/deletar.component";
@@ -22,10 +26,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatSelectModule } from "@angular/material/select";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { CadastrarLocacaoComponent } from "./components/views/locacao/cadastrarLocacao/cadastrar.component";
 import { ListarLocacaoComponent } from "./components/views/locacao/listarLocacao/listar.component";
@@ -52,6 +58,10 @@ import { AtualizarLocacaoComponent } from "./components/views/locacao/atualizarL
     ListarLocacaoIdComponent,
     AtualizarLocacaoComponent,
     DeletarIdLocacaoComponent,
+    PrincipalFavoritoComponent,
+    PrincipalClienteComponent,
+    PrincipalLocacaoComponent,
+    PrincipalFilmeComponent,
     HeaderComponent,
     ContentComponent,
   ],
@@ -62,11 +72,13 @@ import { AtualizarLocacaoComponent } from "./components/views/locacao/atualizarL
     FormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatSnackBarModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatTableModule,
     MatButtonModule,
     MatInputModule,
   ],

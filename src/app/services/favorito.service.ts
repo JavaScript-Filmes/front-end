@@ -23,7 +23,7 @@ export class FavoritoService {
   }
 
   deletarFavorito(id: string): Observable<Favorito[]> {
-    return this.http.get<Favorito[]>(
+    return this.http.delete<Favorito[]>(
       `${this.baseURL}catalogo/excluir-favorito/${id}`
     );
   }

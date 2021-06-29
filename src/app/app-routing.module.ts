@@ -7,6 +7,10 @@ import { DeletarIdComponent } from "./components/views/filme/deletarFilme/deleta
 import { ListarIdComponent } from "./components/views/filme/listarFilmeId/listar.component";
 import { ListarFavoritoComponent } from "./components/views/favorito/listarFavorito/listar.component";
 import { DeletarFavoritoComponent } from "./components/views/favorito/deletarFavorito/deletar.component";
+import { PrincipalLocacaoComponent } from "./components/views/locacao/principal/principal.component";
+import { PrincipalFavoritoComponent } from "./components/views/favorito/principal/principal.component";
+import { PrincipalFilmeComponent } from "./components/views/filme/principal/principal.component";
+import { PrincipalClienteComponent } from "./components/views/cliente/principal/principal.component";
 import { CadastrarFavoritoComponent } from "./components/views/favorito/cadastrarFavorito/cadastrar.component";
 import { ListarClienteComponent } from "./components/views/cliente/listarCliente/listar.component";
 import { ListarClienteIdComponent } from "./components/views/cliente/listarClienteId/listar.component";
@@ -21,6 +25,10 @@ const routes: Routes = [
   {
     path: "",
     component: ListarComponent,
+  },
+  {
+    path: "filme/principal",
+    component: PrincipalFilmeComponent,
   },
   {
     path: "filme/cadastrar",
@@ -43,12 +51,20 @@ const routes: Routes = [
     component: ListarFavoritoComponent,
   },
   {
+    path: "favorito/principal",
+    component: PrincipalFavoritoComponent,
+  },
+  {
     path: "favorito/deletar",
     component: DeletarFavoritoComponent,
   },
   {
     path: "favorito/cadastrar",
     component: CadastrarFavoritoComponent,
+  },
+  {
+    path: "cliente/principal",
+    component: PrincipalClienteComponent,
   },
   {
     path: "cliente/cadastrar",
@@ -61,6 +77,10 @@ const routes: Routes = [
   {
     path: "cliente/listarId",
     component: ListarClienteIdComponent,
+  },
+  {
+    path: "locacao/principal",
+    component: PrincipalLocacaoComponent,
   },
   {
     path: "locacao/cadastrar",
