@@ -41,15 +41,23 @@ export class CadastrarComponent implements OnInit {
     this.filme.genero = this.genero;
     this.filme.duracao = this.duracao;
 
-    this.snack.open("Filme cadastrado com sucesso", "X", {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-    });
-    this.router.navigate([""]);
+    if (this.titulo && this.descricao && this.genero && this.duracao) {
+      this.snack.open("Filme cadastrado com sucesso", "X", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
+      this.router.navigate([""]);
 
-    this.service.cadastrarFilme(this.filme).subscribe((filme) => {
-      console.log(filme);
-    });
+      this.service.cadastrarFilme(this.filme).subscribe((filme) => {
+        console.log(filme);
+      });
+    } else {
+      this.snack.open("Todos os dados precisam ser preenchidos", "X", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
+    }
   }
 }

@@ -57,7 +57,7 @@ export class AtualizarComponent implements OnInit {
         console.log(filme);
       });
 
-      this.snack.open("Filme cadastrado com sucesso", "X", {
+      this.snack.open("Filme atualizado com sucesso", "X", {
         duration: 3000,
         horizontalPosition: "right",
         verticalPosition: "top",

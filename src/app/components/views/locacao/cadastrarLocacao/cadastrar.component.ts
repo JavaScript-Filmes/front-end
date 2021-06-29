@@ -52,15 +52,23 @@ export class CadastrarLocacaoComponent implements OnInit {
   cadastrar(): void {
     this.locacao.data = new Date();
 
-    this.snack.open("Locação cadastrada com sucesso", "X", {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-    });
-    this.router.navigate(["/locacao/listar"]);
+    if (this.locacao.filme && this.locacao.cliente) {
+      this.service.cadastrarLocacao(this.locacao).subscribe((locacao) => {
+        console.log(locacao);
+      });
 
-    this.service.cadastrarLocacao(this.locacao).subscribe((locacao) => {
-      console.log(locacao);
-    });
+      this.snack.open("Locação cadastrada com sucesso", "X", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
+      this.router.navigate(["/locacao/listar"]);
+    } else {
+      this.snack.open("Todos os campos precisam ser preenchidos", "X", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
+    }
   }
 }

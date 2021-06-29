@@ -5,6 +5,8 @@ import { Locacao } from "../../../../modelos/Locacao";
 import { Filme } from "../../../../modelos/Filme";
 import { Cliente } from "../../../../modelos/Cliente";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-atualizar",
@@ -23,7 +25,9 @@ export class AtualizarLocacaoComponent implements OnInit {
   constructor(
     private service: LocacaoService,
     private serviceFilme: FilmeService,
-    private serviceCliente: ClienteService
+    private serviceCliente: ClienteService,
+    private router: Router,
+    private snack: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +60,6 @@ export class AtualizarLocacaoComponent implements OnInit {
 
   atualizaFilme(val: any): void {
     this.locacao.filme = val.value._id;
-    console.log(val.value);
   }
 
   atualizaCliente(val: any): void {
@@ -65,13 +68,29 @@ export class AtualizarLocacaoComponent implements OnInit {
 
   atualizar(): void {
     let locacao = new Locacao();
-    let id = this.id;
 
     locacao.cliente = this.cliente;
     locacao.filme = this.filme;
 
-    this.service.atualizarLocacao(locacao, id).subscribe((locacao) => {
-      console.log(locacao);
-    });
+    if (this.id && this.locacao.filme && this.locacao.cliente) {
+      this.service
+        .atualizarLocacao(this.locacao, this.id)
+        .subscribe((locacao) => {
+          console.log(locacao);
+        });
+
+      this.snack.open("Locação atualizada com sucesso", "X", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
+      this.router.navigate(["/locacao/listar"]);
+    } else {
+      this.snack.open("Todos os dados precisam ser preenchidos", "X", {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+      });
+    }
   }
 }
