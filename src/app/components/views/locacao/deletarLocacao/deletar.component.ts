@@ -55,7 +55,7 @@ export class DeletarIdLocacaoComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate(["/locacao/listar"]);
+      this.router.navigate([""]);
     } else {
       this.snack.open("Por favor, informe o id requerido", "X", {
         duration: 3000,

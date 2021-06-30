@@ -84,7 +84,7 @@ export class AtualizarLocacaoComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate(["/locacao/listar"]);
+      this.router.navigate([""]);
     } else {
       this.snack.open("Todos os dados precisam ser preenchidos", "X", {
         duration: 3000,
