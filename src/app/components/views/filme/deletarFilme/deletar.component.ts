@@ -34,7 +34,7 @@ export class DeletarIdComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate([""]);
+      this.router.navigate(["/filme/principal"]);
 
       this.service.deletarFilme(id).subscribe((filmes) => {
         console.log(filmes);

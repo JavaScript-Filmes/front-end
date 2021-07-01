@@ -32,7 +32,7 @@ export class CadastrarClienteComponent implements OnInit {
       horizontalPosition: "right",
       verticalPosition: "top",
     });
-    this.router.navigate(["/cliente/listar"]);
+    this.router.navigate(["/cliente/principal"]);
 
     this.service.cadastrarCliente(cliente).subscribe((cliente) => {
       console.log(cliente);

@@ -62,7 +62,7 @@ export class CadastrarLocacaoComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate(["/locacao/listar"]);
+      this.router.navigate(["/locacao/principal"]);
     } else {
       this.snack.open("Todos os campos precisam ser preenchidos", "X", {
         duration: 3000,

@@ -55,7 +55,7 @@ export class CadastrarFavoritoComponent implements OnInit {
       horizontalPosition: "right",
       verticalPosition: "top",
     });
-    this.router.navigate(["/favorito/listar"]);
+    this.router.navigate(["/favorito/principal"]);
 
     this.service.cadastrarFavorito(this.favorito).subscribe((favorito) => {
       console.log(favorito);

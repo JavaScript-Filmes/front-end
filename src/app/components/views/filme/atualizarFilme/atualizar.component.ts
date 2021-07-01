@@ -62,7 +62,7 @@ export class AtualizarComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate([""]);
+      this.router.navigate(["/filme/principal"]);
     } else {
       this.snack.open("Todos os dados precisam ser preenchidos", "X", {
         duration: 3000,

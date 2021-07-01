@@ -62,7 +62,7 @@ export class DeletarFavoritoComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate(["/favorito/listar"]);
+      this.router.navigate(["/favorito/principal"]);
     } else {
       this.snack.open("Por favor, informe o id requerido", "X", {
         duration: 3000,

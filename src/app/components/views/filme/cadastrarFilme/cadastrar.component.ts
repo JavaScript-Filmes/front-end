@@ -47,7 +47,7 @@ export class CadastrarComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate([""]);
+      this.router.navigate(["/filme/principal"]);
 
       this.service.cadastrarFilme(this.filme).subscribe((filme) => {
         console.log(filme);
